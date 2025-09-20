@@ -1,0 +1,369 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  /* Updated gradient colors for more creative look */
+  background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 50%, #45b7d1 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  min-height: 100vh;
+}
+
+/* Added animated gradient background */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Navigation */
+.navbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo h2 {
+  /* Updated logo color to match new theme */
+  color: #ff6b6b;
+  font-weight: 700;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  /* Updated active link color */
+  background: #ff6b6b;
+  color: white;
+}
+
+/* Main Content */
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: calc(100vh - 140px);
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: white;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+/* Voting Section */
+.voting-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.photos-grid {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.photo-container {
+  text-align: center;
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-container:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Added click animation effect */
+.photo-container.clicked {
+  animation: clickPulse 0.6s ease-out;
+}
+
+@keyframes clickPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.photo-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.photo-container img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.or-divider {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  /* Added pulsing animation to OR divider */
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* Added loading animation for new photos */
+.photos-loading {
+  opacity: 0.5;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Leaderboard */
+.leaderboard-container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  margin-bottom: 3rem;
+}
+
+.leaderboard-header {
+  /* Updated grid layout to include photo column */
+  display: grid;
+  grid-template-columns: 80px 100px 1fr 120px;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  background: #ff6b6b;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.leaderboard-item {
+  /* Updated grid layout to include photo column */
+  display: grid;
+  grid-template-columns: 80px 100px 1fr 120px;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #eee;
+  transition: background 0.3s ease;
+  align-items: center;
+}
+
+.leaderboard-item:hover {
+  background: #f8f9ff;
+}
+
+.leaderboard-item:last-child {
+  border-bottom: none;
+}
+
+/* Added photo styling for leaderboard */
+.leaderboard-photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ff6b6b;
+  transition: transform 0.3s ease;
+}
+
+.leaderboard-photo:hover {
+  transform: scale(1.1);
+}
+
+.rank {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #ff6b6b;
+}
+
+.rank.gold {
+  color: #ffd700;
+}
+.rank.silver {
+  color: #c0c0c0;
+}
+.rank.bronze {
+  color: #cd7f32;
+}
+
+.name {
+  font-weight: 600;
+  color: #333;
+}
+
+.score {
+  font-weight: 600;
+  color: #ff6b6b;
+  font-size: 1.1rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #ff6b6b;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #ff5252;
+  transform: translateY(-2px);
+}
+
+.back-to-vote {
+  text-align: center;
+}
+
+/* Loading */
+.loading {
+  text-align: center;
+  padding: 3rem;
+  color: white;
+  font-size: 1.2rem;
+}
+
+/* Footer */
+.footer {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0 1rem;
+  }
+
+  .nav-menu {
+    gap: 1rem;
+  }
+
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .photos-grid {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .or-divider {
+    transform: rotate(90deg);
+    margin: 1rem 0;
+  }
+
+  .photo-container img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .leaderboard-header,
+  .leaderboard-item {
+    /* Updated mobile grid layout */
+    grid-template-columns: 50px 80px 1fr 100px;
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .leaderboard-photo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .main-content {
+    padding: 1rem;
+  }
+}

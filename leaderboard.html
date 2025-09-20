@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - Facecard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Facecard</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Vote</a>
+                </li>
+                <li class="nav-item">
+                    <a href="leaderboard.html" class="nav-link active">Leaderboard</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="hero-section">
+            <h1>Leaderboard</h1>
+            <p class="subtitle">Top rated profiles</p>
+        </div>
+
+        <div class="reset-container" style="text-align:center; margin: 2rem 0;">
+            <button id="reset-btn" class="btn btn-danger">Restart Voting</button>
+        </div>
+
+        <div class="leaderboard-container">
+            <div class="leaderboard-header">
+                <div class="rank-col">Rank</div>
+                <div class="photo-col">Photo</div>
+                <div class="name-col">Name</div>
+                <div class="score-col">Score</div>
+            </div>
+            <div id="leaderboard" class="leaderboard-list">
+                <div class="loading">Loading leaderboard...</div>
+            </div>
+        </div>
+
+        <div class="back-to-vote">
+            <a href="index.html" class="btn btn-primary">Back to Voting</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Facecard. All rights reserved.</p>
+    </footer>
+
+    <script src="leaderboard.js"></script>
+<script>
+document.getElementById("reset-btn").onclick = async function() {
+    if (confirm("Are you sure you want to restart voting? This will reset all scores.")) {
+        await fetch(`${apiUrl}/reset`, { method: "POST" });
+        window.location.href = "index.html";
+    }
+};
+</script>
+</body>
+</html>

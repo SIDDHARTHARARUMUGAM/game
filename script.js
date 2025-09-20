@@ -81,7 +81,7 @@ async function vote(winner, loser, clickedElement) {
 
     setTimeout(() => {
       loadRandom()
-    }, 600)
+    }, 0)
   } catch (error) {
     console.error("Error voting:", error)
     clickedElement.classList.remove("clicked")

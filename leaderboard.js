@@ -1,4 +1,4 @@
-const apiUrl = "http://127.0.0.1:5000" // Change if Flask API hosted elsewhere
+const apiUrl = "https://gamebackendapi.onrender.com/" // Change if Flask API hosted elsewhere
 
 async function loadLeaderboard() {
   try {

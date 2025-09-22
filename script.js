@@ -1,4 +1,4 @@
-const apiUrl = "http://127.0.0.1:5000" // Flask API
+const apiUrl = "https://gamebackendapi.onrender.com/" // Flask API
 
 async function loadRandom() {
   try {

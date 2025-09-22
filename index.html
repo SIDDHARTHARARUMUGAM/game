@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facecard - AIML Boys</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <nav class="navbar">
         <div class="nav-container">
@@ -28,13 +30,19 @@
         <div class="hero-section">
             <h1>Who's Handsome..?</h1>
             <h3>Note ⚠ All the Images are obtained with their consent. This is a Fun Project</h1>
-            <p class="subtitle">Click to choose your preference</p>
+                <p class="subtitle">Click to choose your preference</p>
         </div>
 
         <div class="voting-container">
             <div id="photos" class="photos-grid">
                 <div class="loading">Loading photos...</div>
             </div>
+            <!-- <div style="flex: 10;min-width: 18px; margin : 0 0 0 8rem;"> -->
+            <!-- <div class= "leaderboard">
+                <h2 style="text-align:center;">Top 3</h2>
+                <div id="top3-list" style="display: flex; flex-direction: column; gap: 1rem; align-items: center;">
+                </div>
+            </div> -->
         </div>
 
         <!-- Removed stats section with total votes -->
@@ -43,14 +51,85 @@
     <footer class="footer">
         <p>
             &copy; 2024 Facecard. All rights reserved.<br>
-            Designed by 
-            <a href="https://github.com/sxh8fx" target="_blank" class="footer-names">Shridhar</a>, 
-            <a href="https://github.com/SIDDHARTHARARUMUGAM" target="_blank" class="footer-names">Siddharthar</a> | 
-            Developed by 
+            Idea by
+            <a href="https://github.com/SIDDHARTHARARUMUGAM" target="_blank" class="footer-names">Siddharthar</a> |
+            Designed by
+            <a href="https://github.com/sxh8fx" target="_blank" class="footer-names">Shridhar</a>,
+            <a href="https://github.com/SIDDHARTHARARUMUGAM" target="_blank" class="footer-names">Siddharthar</a> |
+            Developed by
             <a href="https://github.com/Pranesh-2005" target="_blank" class="footer-names">Pranesh</a>
         </p>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        async function showTop3Row() {
+            try {
+                const apiUrl = "https://gamebackendapi.onrender.com/"
+                const res = await fetch(`${apiUrl}/leaderboard`)
+                const list = await res.json()
+                const top3 = document.getElementById("top3-list")
+                top3.innerHTML = ""
+
+                const medals = ["🥇", "🥈", "🥉"]
+                list.slice(0, 3).forEach((person, idx) => {
+                    if (!person) return
+
+                    const row = document.createElement("div")
+                    row.style.display = "flex"
+                    row.style.alignItems = "center"
+                    row.style.gap = "0.75rem"
+                    row.style.background = "rgba(255,255,255,0.15)"
+                    row.style.borderRadius = "12px"
+                    row.style.padding = "0.5rem 1rem"
+                    row.style.width = "100%"
+
+                    const medal = document.createElement("span")
+                    medal.textContent = medals[idx]
+                    medal.style.fontSize = "1.5rem"
+
+                    const photo = document.createElement("img")
+                    photo.src = `${apiUrl}/images/${person.filename}`
+                    photo.alt = person.name
+                    photo.onerror = () => { photo.src = "/abstract-profile.png" }
+                    photo.style.width = "36px"
+                    photo.style.height = "36px"
+                    photo.style.borderRadius = "50%"
+                    photo.style.objectFit = "cover"
+                    photo.style.border = "2px solid #fff"
+
+                    const name = document.createElement("span")
+                    name.textContent = person.name
+                    name.style.fontWeight = "600"
+                    name.style.fontSize = "1rem"
+                    name.style.color = "#333"
+
+                    const score = document.createElement("span")
+                    score.textContent = `${Math.round(person.elo)} pts`
+                    score.style.fontSize = "0.95rem"
+                    score.style.color = "#ff6b6b"
+                    score.style.marginLeft = "auto"
+
+                    row.appendChild(medal)
+                    row.appendChild(photo)
+                    row.appendChild(name)
+                    row.appendChild(score)
+
+                    top3.appendChild(row)
+                })
+            } catch (error) {
+                const top3 = document.getElementById("top3-list")
+                if (top3) {
+                    top3.innerHTML = '<div class="loading">Error loading top 3. Please try again.</div>'
+                }
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            showTop3Row()
+            setInterval(showTop3Row, 1000)
+        })
+    </script>
 </body>
+
 </html>

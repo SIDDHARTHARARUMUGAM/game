@@ -1,0 +1,104 @@
+[
+    {
+        "id": 1,
+        "name": "girirahul",
+        "filename": "girirahul.jpg",
+        "elo": 1200
+    },
+    {
+        "id": 2,
+        "name": "hariharan",
+        "filename": "hariharan.jpg",
+        "elo": 1200
+    },
+    {
+        "id": 3,
+        "name": "harish",
+        "filename": "harish.jpg",
+        "elo": 1200
+    },
+    {
+        "id": 4,
+        "name": "jagan",
+        "filename": "jagan.jpg",
+        "elo": 1200
+    },
+    {
+        "id": 5,
+        "name": "krithick varshan",
+        "filename": "krithick varshan.jpg",
+        "elo": 1200
+    },
+    {
+        "id": 6,
+        "name": "manish",
+        "filename": "manish.jpg",
+        "elo": 1200
+    },
+    {
+        "id": 7,
+        "name": "mathi",
+        "filename": "mathi.jpg",
+        "elo": 1200
+    },
+    {
+        "id": 8,
+        "name": "pranesh",
+        "filename": "pranesh.jpg",
+        "elo": 1200
+    },
+    {
+        "id": 9,
+        "name": "raahath",
+        "filename": "raahath.jpg",
+        "elo": 1200
+    },
+    {
+        "id": 10,
+        "name": "rohith",
+        "filename": "rohith.jpg",
+        "elo": 1200
+    },
+    {
+        "id": 11,
+        "name": "sanjeevi",
+        "filename": "sanjeevi.jpg",
+        "elo": 1200
+    },
+    {
+        "id": 12,
+        "name": "sarvesh",
+        "filename": "sarvesh.jpg",
+        "elo": 1200
+    },
+    {
+        "id": 13,
+        "name": "shridhar",
+        "filename": "shridhar.jpg",
+        "elo": 1200
+    },
+    {
+        "id": 14,
+        "name": "siddharthan",
+        "filename": "siddharthan.jpg",
+        "elo": 1200
+    },
+    {
+        "id": 15,
+        "name": "siddharthar",
+        "filename": "siddharthar.jpg",
+        "elo": 1200
+    },
+    {
+        "id": 16,
+        "name": "sivaprakash",
+        "filename": "sivaprakash.jpg",
+        "elo": 1200
+    },
+    {
+        "id": 17,
+        "name": "sudhan",
+        "filename": "sudhan.jpg",
+        "elo": 1200
+    }
+]
